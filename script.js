@@ -63,3 +63,4 @@ function Car(brand, model, number) {
 }
 
 const myCar = new Car("Toyota", "A123BC");
+const myCar = new Car("Toyota", "A123BC");
