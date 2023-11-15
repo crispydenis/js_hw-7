@@ -54,13 +54,20 @@ function Car(brand, model, number) {
 
     // двигатель вкл
     this.toEngineOn = function(){
-        this.engineOn = !this.engineOn
-        console.log('двигатель вкл')
+        this.engineOn = !this.engineOn;
+        console.log(`Двигатель ${this.engineOn ? "включен" : "выключен"}.`);
     }
-
-
-
+    this.totransmission = function(transmission){
+        if(this.engineOn){
+            this.transmission=transmission
+            console.log(`передача вкл в ${transmission}`)
+        }else{
+            console.log(`двиг выкл`)
+        }
+    }
 }
 
-const myCar = new Car("Toyota", "A123BC");
-const myCar = new Car("Toyota", "A123BC");
+let myCar = new Car("Toyota", "Camry", "A123BC");
+
+console.log(myCar)
+
