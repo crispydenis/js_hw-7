@@ -36,7 +36,7 @@ function Car(brand, model, number) {
                 console.log(`Скорость ${this.speed * 20} км/ч`)
             }
             else
-                console.log('Максимальная скорость')
+                console.log('Максимальная скорость 100км/ч')
         }
         else
             console.log(`включите двигатель`)
@@ -73,6 +73,8 @@ myCar.onheadlights()
 myCar.tospeed()
 myCar.tospeed()
 myCar.tospeed()
+// myCar.tospeed()
+// myCar.tospeed()
 // myCar.tospeed()
 myCar.totransmission()
 
