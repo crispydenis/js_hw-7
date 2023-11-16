@@ -5,69 +5,74 @@
 двигателя, вкл./выкл. передачи (вперед, назад, нейтральная), движение вперед и назад
 (ввод информации о скорости движения), расчет пройденных километров. */
 
-let Lamp = function(w, t, tt) {
-    this.status = false;
-
-    this.watt = w || 0;
-    this.type = t || 0;
-    this.temp = tt || 'white';
-    this.color;
-    this.timeOn;
-
-    this.rgb = function(color) {
-        this.color = color;
-    };
-
-    this.onOff = function() {
-        this.status = !this.status;
-        
-        if (this.status) this.timeOn = new Date();
-    };
-};
-
-let lamp1 = new Lamp('65w', '2', 'hot');
-let lamp2 = new Lamp('100w', '1', 'white');
-let lamp3 = new Lamp('18w', '2', 'hot');
-
-lamp1.onOff()
-
-// console.log(lamp1);
-// console.log(lamp2);
-// console.log(lamp3);
-
-
-
-
-let car = function(){
-
-}
-
-// Конструктор объекта "Автомобиль"
 function Car(brand, model, number) {
     this.brand = brand;
     this.model = model;
     this.number = number;
     this.engineOn = false;
+    this.headlights = false;
     this.transmission = "parking";
+    this.currentTransmission = 0;
     this.speed = 0;
     this.distanceTraveled = 0;
 
-    // двигатель вкл
-    this.toEngineOn = function(){
+    // двигатель вкл/выкл
+    this.toEngineOn = function () {
         this.engineOn = !this.engineOn;
         console.log(`Двигатель ${this.engineOn ? "включен" : "выключен"}.`);
     }
-    this.totransmission = function(transmission){
-        if(this.engineOn){
-            this.transmission=transmission
-            console.log(`передача вкл в ${transmission}`)
-        }else{
-            console.log(`двиг выкл`)
+
+    // фары вкл/выкл
+    this.onheadlights = function () {
+        this.headlights = !this.headlights
+        console.log(`Фары ${this.headlights ? 'вкл' : 'выкл'}`)
+    }
+
+    // скорость авто
+    this.tospeed = function () {
+        if (this.engineOn) {
+            if (this.speed < 5) {
+                this.speed++;
+                console.log(`Скорость ${this.speed * 20} км/ч`)
+            }
+            else
+                console.log('Максимальная скорость')
+        }
+        else
+            console.log(`включите двигатель`)
+    }
+
+    // автоматическое переключение передачи в зависимости от скорости
+    this.totransmission = function () {
+        if (this.speed === 0) {
+            console.log(`Передача 1`)
+        }
+        if (this.speed === 1) {
+            console.log(`Передача 2`)
+        }
+        if (this.speed === 2) {
+            console.log(`Передача 3`)
+        }
+        if (this.speed === 3) {
+            console.log(`Передача 4`)
+        }
+        if (this.speed === 4) {
+            console.log(`Передача 5`)
+        }
+        if (this.speed === 5) {
+            console.log(`Передача 6`)
         }
     }
 }
 
-let myCar = new Car("Toyota", "Camry", "A123BC");
 
-console.log(myCar)
+let myCar = new Car("Porshe", "Panamera", "A998H178");
+
+myCar.toEngineOn()
+myCar.onheadlights()
+myCar.tospeed()
+myCar.tospeed()
+myCar.tospeed()
+// myCar.tospeed()
+myCar.totransmission()
 
