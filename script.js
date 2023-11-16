@@ -12,9 +12,9 @@ function Car(brand, model, number) {
     this.engineOn = false;
     this.headlights = false;
     this.transmission = "parking";
-    this.currentTransmission = 0;
     this.speed = 0;
-    this.distanceTraveled = 0;
+    this.distance //не успеваю сделать
+ 
 
     // двигатель вкл/выкл
     this.toEngineOn = function () {
@@ -28,7 +28,7 @@ function Car(brand, model, number) {
         console.log(`Фары ${this.headlights ? 'вкл' : 'выкл'}`)
     }
 
-    // скорость авто
+    // скорость авто(не знаю как сделат чтобы снижалась скорость)
     this.tospeed = function () {
         if (this.engineOn) {
             if (this.speed < 5) {
